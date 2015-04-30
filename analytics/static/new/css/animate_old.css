@@ -1,0 +1,53 @@
+.enter-page         {  
+    -webkit-animation:scaleUp 0.5s both ease-in;
+    -moz-animation:scaleUp 0.5s both ease-in;
+    animation:scaleUp 0.5s both ease-in;    
+}
+
+.page-rotate        {  
+    -webkit-animation:Rotate 0.5s both ease-in;
+    -moz-animation:Rotate 0.5s both ease-in;
+    animation:Rotate 0.5s both ease-in;    
+}
+
+.page-rotatey      {  
+    -webkit-animation:RotateY 0.5s both ease-in;
+    -moz-animation:RotateY 0.5s both ease-in;
+    animation:RotateY 0.5s both ease-in;    
+}
+
+
+/* scale up */
+@keyframes scaleUp {
+    from        { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+@-moz-keyframes scaleUp {
+    from        { opacity: 0.3; -moz-transform: scale(0.8); }
+}
+@-webkit-keyframes scaleUp {
+    from        { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+
+/* Rotate */
+@keyframes Rotate {
+    from        { opacity: 0.3; -webkit-transform: rotateX(120deg); }
+}
+@-moz-keyframes Rotate {
+    from        { opacity: 0.3; -moz-transform: rotateX(120deg); }
+}
+@-webkit-keyframes Rotate {
+    from        { opacity: 0.3; -webkit-transform: rotateX(120deg); }
+}
+
+
+/* RotateY */
+@keyframes RotateY {
+    from        { opacity: 0.3; -webkit-transform: rotateY(120deg); }
+}
+@-moz-keyframes RotateY {
+    from        { opacity: 0.3; -moz-transform: rotateY(120deg); }
+}
+@-webkit-keyframes RotateY {
+    from        { opacity: 0.3; -webkit-transform: rotateY(120deg); }
+}

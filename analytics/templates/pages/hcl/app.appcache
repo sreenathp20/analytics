@@ -1,0 +1,23 @@
+CACHE MANIFEST
+#ver v0.0.6
+
+
+#css files
+{{ url_for('static', filename='new/css/allmy.css') }}
+
+ 
+#js files
+{{ url_for('static', filename='new/js/load/boot.min.js') }}
+
+#routes
+/hcl/dashboard
+/hcl/statistics 
+/hcl/timeseries 
+
+
+NETWORK:
+*
+/
+/nossearch
+/managejd
+/graph

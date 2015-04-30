@@ -1,0 +1,19 @@
+[APP]
+SECRET_KEY      = 'hireEDGEanalytics'
+DEBUG           = 'True'
+ver             = 1.0
+
+[JS]
+JS_DEBUG        = 'True'
+MINJS           = 'False'
+JS_VER          = '1.0.13'
+
+[ANALYTICS]
+DB              = "hirealchemy_analytics"
+
+[HCL]
+DB              = "hirealchemy_hcl"
+
+
+
+

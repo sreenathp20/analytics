@@ -1,0 +1,57 @@
+[Thu Apr 30 06:32:35.330264 2015] [:info] [pid 32530:tid 139882453608320] mod_wsgi (pid=32530): Attach interpreter ''.
+[Thu Apr 30 06:32:48.204759 2015] [:info] [pid 32530:tid 139882335581952] [remote 106.51.143.186:59883] mod_wsgi (pid=32530, process='analytics', application=''): Loading WSGI script '/home/analytics/projects/webapp/analytics/analytics.wsgi'.
+[Thu Apr 30 06:32:49.123327 2015] [:error] [pid 32530:tid 139882304079616] 
+[Thu Apr 30 06:32:50.530788 2015] [:error] [pid 32530:tid 139882335581952] unauthorized None
+[Thu Apr 30 06:32:50.785847 2015] [:error] [pid 32530:tid 139882304079616] 
+[Thu Apr 30 06:33:15.748554 2015] [:error] [pid 32530:tid 139882304079616] /home/analytics/projects/analytics/lib/python2.7/site-packages/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.
+[Thu Apr 30 06:33:15.748620 2015] [:error] [pid 32530:tid 139882304079616]   InsecurePlatformWarning
+[Thu Apr 30 06:33:16.207690 2015] [:error] [pid 32530:tid 139882335581952] current_user.main_access hcl
+[Thu Apr 30 06:33:16.468419 2015] [:error] [pid 32530:tid 139882304079616] section hcl
+[Thu Apr 30 06:33:18.145478 2015] [:error] [pid 32530:tid 139882304079616] HireRoutes __init__
+[Thu Apr 30 06:33:18.149590 2015] [:error] [pid 32530:tid 139882304079616] api dashboard
+[Thu Apr 30 06:33:18.153588 2015] [:error] [pid 32530:tid 139882335581952] HireRoutes __init__
+[Thu Apr 30 06:33:18.155582 2015] [:error] [pid 32530:tid 139882335581952] api dashboard
+[Thu Apr 30 06:33:18.222276 2015] [:error] [pid 32530:tid 139882314577664] section favicon.ico
+[Thu Apr 30 06:33:18.222497 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811] mod_wsgi (pid=32530): Exception occurred processing WSGI script '/home/analytics/projects/webapp/analytics/analytics.wsgi'.
+[Thu Apr 30 06:33:18.222532 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811] Traceback (most recent call last):
+[Thu Apr 30 06:33:18.222560 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Thu Apr 30 06:33:18.223071 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     return self.wsgi_app(environ, start_response)
+[Thu Apr 30 06:33:18.223091 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/app.py", line 1820, in wsgi_app
+[Thu Apr 30 06:33:18.223128 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     response = self.make_response(self.handle_exception(e))
+[Thu Apr 30 06:33:18.223146 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/app.py", line 1403, in handle_exception
+[Thu Apr 30 06:33:18.223173 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     reraise(exc_type, exc_value, tb)
+[Thu Apr 30 06:33:18.223188 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+[Thu Apr 30 06:33:18.223209 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     response = self.full_dispatch_request()
+[Thu Apr 30 06:33:18.223223 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+[Thu Apr 30 06:33:18.223257 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     rv = self.handle_user_exception(e)
+[Thu Apr 30 06:33:18.223272 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+[Thu Apr 30 06:33:18.223302 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     reraise(exc_type, exc_value, tb)
+[Thu Apr 30 06:33:18.223323 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+[Thu Apr 30 06:33:18.223345 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     rv = self.dispatch_request()
+[Thu Apr 30 06:33:18.223360 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+[Thu Apr 30 06:33:18.223390 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     return self.view_functions[rule.endpoint](**req.view_args)
+[Thu Apr 30 06:33:18.223404 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask_login.py", line 758, in decorated_view
+[Thu Apr 30 06:33:18.223630 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     return func(*args, **kwargs)
+[Thu Apr 30 06:33:18.223652 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/webapp/analytics/analytics/routes/hcl/baseroutes.py", line 14, in home_hcl
+[Thu Apr 30 06:33:18.223707 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     return render_template('pages/'+section+'/layout_blank_page.html', section=section)
+[Thu Apr 30 06:33:18.223724 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/templating.py", line 127, in render_template
+[Thu Apr 30 06:33:18.223799 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+[Thu Apr 30 06:33:18.223818 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/jinja2/environment.py", line 830, in get_or_select_template
+[Thu Apr 30 06:33:18.224121 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     return self.get_template(template_name_or_list, parent, globals)
+[Thu Apr 30 06:33:18.224141 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/jinja2/environment.py", line 791, in get_template
+[Thu Apr 30 06:33:18.224165 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     return self._load_template(name, self.make_globals(globals))
+[Thu Apr 30 06:33:18.224180 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/jinja2/environment.py", line 765, in _load_template
+[Thu Apr 30 06:33:18.224201 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     template = self.loader.load(self, name, globals)
+[Thu Apr 30 06:33:18.224218 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/jinja2/loaders.py", line 113, in load
+[Thu Apr 30 06:33:18.224367 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     source, filename, uptodate = self.get_source(environment, name)
+[Thu Apr 30 06:33:18.224388 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]   File "/home/analytics/projects/analytics/lib/python2.7/site-packages/flask/templating.py", line 64, in get_source
+[Thu Apr 30 06:33:18.224411 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811]     raise TemplateNotFound(template)
+[Thu Apr 30 06:33:18.224449 2015] [:error] [pid 32530:tid 139882314577664] [remote 106.51.143.186:56811] TemplateNotFound: pages/favicon.ico/layout_blank_page.html
+[Thu Apr 30 06:33:18.391050 2015] [:error] [pid 32530:tid 139882335581952] HireRoutes __init__
+[Thu Apr 30 06:33:18.393015 2015] [:error] [pid 32530:tid 139882335581952] api dashboard
+[Thu Apr 30 06:33:18.398387 2015] [:error] [pid 32530:tid 139882314577664] HireRoutes __init__
+[Thu Apr 30 06:33:18.400353 2015] [:error] [pid 32530:tid 139882314577664] api dashboard
+[Thu Apr 30 06:33:18.410255 2015] [:error] [pid 32530:tid 139882304079616] HireRoutes __init__
+[Thu Apr 30 06:33:18.412238 2015] [:error] [pid 32530:tid 139882304079616] api dashboard
+[Thu Apr 30 06:33:18.674400 2015] [:error] [pid 32530:tid 139882325083904] HireRoutes __init__
+[Thu Apr 30 06:33:18.676303 2015] [:error] [pid 32530:tid 139882325083904] api dashboard

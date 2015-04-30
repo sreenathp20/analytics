@@ -1,0 +1,161 @@
+<div class="page-container">
+	<!-- BEGIN PAGE HEAD -->
+	<div class="page-head">
+		<div class="container">
+			<!-- BEGIN PAGE TITLE -->
+			<div class="page-title">
+				<h1>Statistics</h1>
+			</div>
+			<!-- END PAGE TITLE -->
+			<!-- BEGIN PAGE TOOLBAR -->
+			
+			<!-- END PAGE TOOLBAR -->
+		</div>
+	</div>
+	<!-- END PAGE HEAD -->
+	<!-- BEGIN PAGE CONTENT -->
+	<div class="page-content" ng-controller="StatisticsController" ng-init="LoadData()">
+		<div class="container">
+			
+			<ul class="page-breadcrumb breadcrumb">
+				<li>
+					<a href="/#/">Home</a><i class="fa fa-circle"></i>
+				</li>
+				<li class="active">Statistics</li>
+			</ul>
+			<!-- END PAGE BREADCRUMB -->
+			<!-- BEGIN PAGE CONTENT INNER -->
+			<div class="row">
+				<div ng-show="chart_container1" class="col-md-6 col-sm-12 page-rotatey" ng-init="LoadInternalFillingData()">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Internal filling rate</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							
+						</div>
+						<div class="portlet-body">							
+							<highchart id="chart1" config="chartConfig" class="span8" ></highchart>				
+							
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				<div ng-show="chart_container2" class="col-md-6 col-sm-12 page-rotatey" ng-init="LoadHiringEfficiencyData()">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Employer Attractiveness</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group btn-group-devided" data-toggle="buttons">					
+									<!-- <label class="btn btn-transparent grey-salsa btn-circle btn-sm" ng-click="BackToSkills();">
+									<input type="radio" name="options" class="toggle" id="option2">Back</label> -->
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">
+							
+							<highchart id="attr_chart2" config="AttractivenessChartConfig" class="span8" ></highchart>				
+							
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>	
+				<div ng-show="chart_container3" class="col-md-6 col-sm-12 page-rotatey" ng-init="LoadHiringEfficiency()">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Internal Hiring Efficiency</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group btn-group-devided" data-toggle="buttons">					
+									<!-- <label class="btn btn-transparent grey-salsa btn-circle btn-sm" ng-click="BackToSkills();">
+									<input type="radio" name="options" class="toggle" id="option2">Back</label> -->
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">							
+							<highchart id="attr_chart3" config="HiringEfficiencyChartConfig" class="span8" ></highchart>
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>	
+				<div ng-show="chart_container4" class="col-md-6 col-sm-12 page-rotatey" ng-init="LoadLoR()">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Loss of Revenue (in terms of days)</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group btn-group-devided" data-toggle="buttons">					
+									<!-- <label class="btn btn-transparent grey-salsa btn-circle btn-sm" ng-click="BackToSkills();">
+									<input type="radio" name="options" class="toggle" id="option2">Back</label> -->
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">							
+							<highchart id="attr_chart4" config="LoRChartConfig" class="span8" ></highchart>
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>	
+
+				<div ng-show="chart_container5" class="col-md-6 col-sm-12 page-rotatey" ng-init="LoadDemandApproval()">
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Time taken in demand approval</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group btn-group-devided" data-toggle="buttons">					
+									
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">							
+							<highchart id="attr_chart5" config="DemandApprovalChart" class="span8" ></highchart>
+						</div>
+					</div>
+				</div>	
+				<div ng-show="chart_container6" class="col-md-6 col-sm-12 page-rotatey" ng-init="LeadTime()">
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Leadtime</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group btn-group-devided" data-toggle="buttons">					
+									
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">							
+							<highchart id="attr_chart6" config="LeadTimeChart" class="span8" ></highchart>
+						</div>
+					</div>
+				</div>			
+				
+			</div>
+			
+			<!-- END PAGE CONTENT INNER -->
+		</div>
+	</div>
+	<!-- END PAGE CONTENT -->
+</div>

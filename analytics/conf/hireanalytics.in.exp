@@ -1,0 +1,27 @@
+[APP]
+SECRET_KEY      = 'hireEDGEanalytics'
+DEBUG           = 'True'
+ver             = 1.0
+TEMPLATE_DIR    = 'templates'
+STATIC_DIR      = 'static'
+PROJECT_DIR     = '/home/sreenath/projects/webapp/analytics/'
+CACHE_DIR       = PROJECT_DIR+'analytics/cache'
+LOGFILE         = PROJECT_DIR+'analytics/log/dashboard.log'
+DATA_DIR        = PROJECT_DIR+'data/'
+CACHE_TIME      = 60 * 60 * 24 * 365
+if(DEBUG):
+	LOGLEVEL    = logging.INFO
+else:
+	LOGLEVEL    = logging.WARNING
+
+[JS]
+JS_DEBUG        = 'False'
+MINJS           = 'False'
+JS_VER          = '1.0.8'
+
+
+[ANALYTICS]
+DB              = "hirealchemy_analytics"
+
+[HCL]
+DB              = "hirealchemy_hcl"

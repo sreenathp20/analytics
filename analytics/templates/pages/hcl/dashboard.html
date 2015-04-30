@@ -1,0 +1,360 @@
+<div class="page-container">
+	<!-- BEGIN PAGE HEAD -->
+	<div class="page-head">
+		<div class="container">
+			<!-- BEGIN PAGE TITLE -->
+			<div class="page-title">
+				<h1>Dashboard <small>statistics & reports</small></h1>
+			</div>
+			<!-- END PAGE TITLE -->
+			<!-- BEGIN PAGE TOOLBAR -->
+			
+			<!-- END PAGE TOOLBAR -->
+		</div>
+	</div>
+	<!-- END PAGE HEAD -->
+	<!-- BEGIN PAGE CONTENT -->
+	<div class="page-content">
+		<div class="container">
+			
+			<ul class="page-breadcrumb breadcrumb">
+				<li>
+					<a href="/#/">Home</a><i class="fa fa-circle"></i>
+				</li>
+				<li class="active">
+					 Dashboard
+				</li>
+			</ul>
+			<!-- END PAGE BREADCRUMB -->
+			<!-- BEGIN PAGE CONTENT INNER -->
+			<div class="row" ng-controller="SummaryController">
+				<div ng-show="chart_container1" class="col-md-6 col-sm-12 page-rotatey" ng-init="LoadSummary()">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Requisition Summary</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							
+						</div>
+						<div class="portlet-body">							
+							<div class="row list-separated">
+								
+								<div class="col-md-3 col-sm-3 col-xs-6">
+									<div class="font-grey-mint font-sm">
+										 Total
+									</div>
+									<div class="uppercase font-hg font-red-flamingo" ng-bind="tot_count">
+										 
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-6" ng-repeat="count in status_count">
+									<div class="font-grey-mint font-sm">
+										 {[count.Status]}
+									</div>
+									<div class="uppercase font-hg theme-font">
+										 {[count.count]}
+									</div>
+								</div>								
+							</div>
+							<highchart id="chart1" config="chartConfig" class="span8" ></highchart>				
+							
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				<div ng-show="chart_container2" class="col-md-6 col-sm-12 page-rotatey" ng-init="LoadCountrySummary()">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Requisition Top 4 Country</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							
+						</div>
+						<div class="portlet-body">
+							<div class="row list-separated">								
+								<div class="col-md-3 col-sm-3 col-xs-6" ng-repeat="count in country_count | limitTo: 4">
+									<div class="font-grey-mint font-sm">
+										 {[count.country]}
+									</div>
+									<div class="uppercase font-hg theme-font">
+										 {[count.count]}
+									</div>
+								</div>								
+							</div>
+							<highchart id="chart2" config="CountryChartConfig" class="span8" ></highchart>				
+							
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				<div ng-show="chart_container3" class="col-md-6 col-sm-12 page-rotatey">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Requisition By Location </span>(<span class="caption-subject theme-font bold uppercase">{[country]}</span>)
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+										<a href="" class="btn btn-circle green-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+										Select Country 
+										</a>
+										<ul class="dropdown-menu pull-right" >
+											<li ng-repeat="country in country_count">
+												<a ng-click="SelectCountry(country.country)">
+												{[country.country]} </a>
+											</li>
+										</ul>
+								</div>								
+								<div class="btn-group btn-group-devided" data-toggle="buttons">
+									<button class="btn green-haze btn-circle" ng-click="BackToCountryChart()">Back</button>	
+								</div>
+								
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="row list-separated">								
+								<div class="col-md-3 col-sm-3 col-xs-6" ng-repeat="count in loc_count | limitTo: 4">
+									<div class="font-grey-mint font-sm">
+										 {[count.PersonalSubArea]}
+									</div>
+									<div class="uppercase font-hg theme-font">
+										 {[count.count]}
+									</div>
+								</div>								
+							</div>
+							<highchart id="chart3" config="LocChartConfig" class="span8" ></highchart>				
+							
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				
+			</div>
+			<div class="row" ng-controller="AttractivenessController" ng-init="LoadData()">
+				<div ng-show="attr_container1" class="col-md-6 col-sm-12 page-rotatey">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Skills in demand</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							
+						</div>
+						<div class="portlet-body">
+							
+							<highchart id="attr_chart1" config="chartConfig" class="span8" ></highchart>				
+							
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				<div ng-show="attr_container2" class="col-md-6 col-sm-12 page-rotatey">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject theme-font bold uppercase">{[skill]} </span><span class="caption-subject grey-gallery bold uppercase">in demand</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+										<a href="" class="btn btn-circle green-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+										Select Skill 
+										</a>
+										<ul class="dropdown-menu pull-right" >
+											<li ng-repeat="skill in chartConfig.xAxis.categories">
+												<a ng-click="SkillFilter(skill)">
+												{[skill]} </a>
+											</li>
+										</ul>
+								</div>
+								<div class="btn-group btn-group-devided" data-toggle="buttons">
+									<button class="btn green-haze btn-circle" ng-click="BackToSkills()">Back</button>	
+								</div>
+								
+							</div>
+						</div>
+						<div class="portlet-body">
+							
+							<highchart id="attr_chart2" config="LocChartConfig" class="span8" ></highchart>				
+							
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				
+				<div ng-show="attr_container4" class="col-md-6 col-sm-12 page-rotatey">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Requisition by level</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group btn-group-devided" data-toggle="buttons">					
+									<!-- <label class="btn btn-transparent grey-salsa btn-circle btn-sm" ng-click="BackToSkills();">
+									<input type="radio" name="options" class="toggle" id="option2">Back</label> -->
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">
+							
+							<highchart id="attr_chart4" config="LevelChartConfig" class="span8" ></highchart>				
+							
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>	
+				<div ng-show="attr_container5" class="col-md-6 col-sm-12 page-rotatey">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Requisition by level </span><span class="caption-subject theme-font bold uppercase">{[level_1]}</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+										<a href="" class="btn btn-circle green-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+										Select Level 
+										</a>
+										<ul class="dropdown-menu pull-right" >
+											<li ng-repeat="level in LevelChartConfig.xAxis.categories">
+												<a ng-click="SelectDataLevel('Level_2', 'Level_3', level)">
+												{[level]} </a>
+											</li>
+										</ul>
+								</div>
+								<div class="btn-group btn-group-devided" data-toggle="buttons">
+									<button class="btn green-haze btn-circle" ng-click="BackToLevel('attr_container5', 'attr_container4')">Back</button>	
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">							
+							<highchart id="attr_chart5" config="Level1ChartConfig" class="span8" ></highchart>
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>		
+				<div ng-show="attr_container6" class="col-md-6 col-sm-12 page-rotatey">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Requisition by level </span><span class="caption-subject theme-font bold uppercase">{[level_2]}</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+										<a href="" class="btn btn-circle green-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+										Select Level 
+										</a>
+										<ul class="dropdown-menu pull-right" >
+											<li ng-repeat="level in Level1ChartConfig.xAxis.categories">
+												<a ng-click="SelectDataLevel('Level_3', 'Level_4', level)">
+												{[level]} </a>
+											</li>
+										</ul>
+								</div>
+								<div class="btn-group btn-group-devided" data-toggle="buttons">
+									<button class="btn green-haze btn-circle" ng-click="BackToLevel('attr_container6', 'attr_container5')">Back</button>	
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">							
+							<highchart id="attr_chart6" config="Level2ChartConfig" class="span8" ></highchart>	
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>	
+				<div ng-show="attr_container7" class="col-md-6 col-sm-12 page-rotatey">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Requisition by level </span><span class="caption-subject theme-font bold uppercase">{[level_3]}</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+										<a href="" class="btn btn-circle green-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+										Select Level 
+										</a>
+										<ul class="dropdown-menu pull-right" >
+											<li ng-repeat="level in Level2ChartConfig.xAxis.categories">
+												<a ng-click="SelectDataLevel('Level_4', '', level)">
+												{[level]} </a>
+											</li>
+										</ul>
+								</div>
+								<div class="btn-group btn-group-devided" data-toggle="buttons">
+									<button class="btn green-haze btn-circle" ng-click="BackToLevel('attr_container7', 'attr_container6')">Back</button>	
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">							
+							<highchart id="attr_chart7" config="Level3ChartConfig" class="span8" ></highchart>	
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>	
+				<div ng-show="attr_container8" class="col-md-6 col-sm-12 page-rotatey" ng-init="DemandReasons()">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">Reasons for generating demands</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							
+						</div>
+						<div class="portlet-body">							
+							<highchart id="attr_chart8" config="DemandReasonChart" class="span8" ></highchart>	
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>		
+				<div ng-show="attr_container9" class="col-md-6 col-sm-12 page-rotatey" ng-init="DemandCustomers()">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font hide"></i>
+								<span class="caption-subject grey-gallery bold uppercase">REQUISITION TOP 5 Customers</span>
+								<span class="caption-helper hide">weekly stats...</span>
+							</div>
+							
+						</div>
+						<div class="portlet-body">							
+							<highchart id="attr_chart9" config="DemandCustomerChart" class="span8" ></highchart>	
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				
+				
+			</div>
+
+			<!-- END PAGE CONTENT INNER -->
+		</div>
+	</div>
+	<!-- END PAGE CONTENT -->
+</div>

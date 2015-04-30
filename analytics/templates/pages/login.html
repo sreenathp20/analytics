@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DoAnalyticsLogin">
+<head>
+<meta charset="utf-8"/>
+<title>DoAnalytics | Login</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='new/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='new/css/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='new/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='new/css/uniform.default.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='new/css/lock.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='new/css/components.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='new/css/plugins.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='new/css/layout.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='new/css/default.css') }}" rel="stylesheet" type="text/css" id="style_color">
+<link href="{{ url_for('static', filename='new/css/custom.css') }}" rel="stylesheet" type="text/css">
+<!-- <link rel="shortcut icon" href="favicon.ico"/> -->
+</head>
+<body>
+
+<div class="page-lock">
+	<div class="page-logo" style="margin-bottom: 0px;">
+		<a class="brand" href="index.html">
+		<!-- <img src="{{ url_for('static', filename='new/images/logo.png') }}" alt="logo"> -->
+		</a>
+	</div>
+	<div class="page-body" ng-controller="LoginController">
+		<img class="page-lock-img" src="{{ url_for('static', filename='new/images/photo.png') }}" alt="">
+		<div class="page-lock-info" style="width:264px;">
+			<h3 style="color:#fff;">Sign in</h3>
+			<span ng-bind="loginerror" class="locked" style="color:#ff0000;"></span>
+			<form class="form-inline" action="index.html" style="margin-top:5px; margin-bottom:5px; padding:0px;">
+				<div class="input-group input-medium" style="margin-bottom:10px">
+
+					<input ng-model="username" type="text" class="form-control" placeholder="Mobile Or Email" style="width: 239px !important;" >
+
+					<span class="input-group-btn">
+					</span>
+				</div>
+				<div class="input-group input-medium">
+					<input ng-model="password" type="password" class="form-control" placeholder="Password" style="width: 239px !important;">
+					<span class="input-group-btn">
+					</span>
+				</div>
+				<div class="input-group input-medium" style="margin-top:5px;"> 
+					<button type="button" ng-click="Login()" class="btn blue icn-only pull-right">Login</button>
+				</div>
+
+				<!-- /input-group -->
+				<!-- <div class="relogin">
+					<a href="login.html">
+					Register Here 
+					</a>
+					<a>
+					 |
+ 					</a>
+					<a href="login.html">
+					Forgot Password? </a>
+				</div> -->
+			</form>
+		</div>
+	</div>
+	<div class="page-footer-custom">
+		 2015 © DoAnalytics.in
+	</div>
+</div>
+
+<script type="text/javascript">
+	var JS_VER = '{{ config.CONFIG["JS_VER"] }}';
+	var DEBUG = '{{ config.CONFIG["DEBUG"] }}';
+	var JS_MODULE = 'login';
+	console.log("JS_VER", JS_VER);
+</script>
+
+{% if config.CONFIG.JS_DEBUG  %}
+
+<script src="{{ url_for('static', filename='new/js/jquery-1.11.0.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/jquery-migrate-1.2.1.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/jquery-ui-1.10.3.custom.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/bootstrap-hover-dropdown.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/jquery.blockui.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/jquery.cokie.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/jquery.uniform.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/jquery.backstretch.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/metronic.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/layout.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/demo.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='new/js/lock.js') }}" type="text/javascript"></script>
+
+<script src="{{ url_for('static', filename='new/js/angular/angular.min.js') }}" type="text/javascript"></script>
+
+
+<script src="{{ url_for('static', filename='new/js/angular/controllers/login.js') }}?ver={{ config.CONFIG['JS_VER'] }}" type="text/javascript"></script>
+
+<script>
+	jQuery(document).ready(function() {    
+   		Metronic.init(); // init metronic core components
+		Layout.init(); // init current layout
+		Demo.init(); // init demo features
+   		Lock.init();
+	});
+</script>
+
+
+{% else %}
+
+
+<script src="{{ url_for('static', filename='new/js/load/bootup.js') }}?ver={{ config.CONFIG['JS_VER'] }}"></script>
+{% endif %}
+
+</body>
+</html>

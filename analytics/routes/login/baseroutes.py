@@ -40,10 +40,12 @@ def loginuser():
             res = {"success": True}
             login_user(u)
             mu = ManageUser()
-	    mu.SendNotification()
-	else:
+            print "request.remote_addr", request.remote_addr
+            mu.SendNotification(request.remote_addr)
+            return json.dumps(res)
+        else:
             res = {"success": False}
-        return json.dumps(res)
+            return json.dumps(res)
     else:
         res = {"success": False}
         return json.dumps(res)

@@ -9,10 +9,10 @@ class ManageUser:
         self.m = HireMongo(appconfig.ANALYTICS.DB)
         self.collection = self.m.db.users
 
-    def SendNotification(self):
-	apostle.domain_key = '8af9f19962458b59682de6079a4c7c46dcd3f0e9'
-	apostle.deliver("welcome", {"email": "sreenathp20@gmail.com"})
-	#test = 'hi'
+    def SendNotification(self, ip):
+        apostle.domain_key = '8af9f19962458b59682de6079a4c7c46dcd3f0e9'
+        apostle.deliver("welcome", {"email": "sreenathp20@gmail.com", "name": "Sreenath P", "ip_address": ip})
+        #test = 'hi'
     
     def AddUser(self, data):
         res = {}
